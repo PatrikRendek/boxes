@@ -43,8 +43,10 @@ def check_land(boxes: list):
             if box1 is not box2:
                 if box1.contains(box2):
                     box2.nested += 1
+
     for box in boxes:
-        if (box.nested % 2) == 0:
+        if (box.nested % 2) == 0: # if nested is multiple of 2 land is True,if not land is False. Area out of boxes is sea.
+            box.land = True
             result += 1
     return result
 
@@ -55,11 +57,11 @@ if __name__ == '__main__':
     boxCount = input("Number of boxes:")
     counter = 1
     boxes = []
-    while counter != int(boxCount)+1:
+    while counter != int(boxCount)+1: # get coords from input and append them into a list
         coordinates = input("Box {} coordinates:".format(counter))
         coordinates = coordinates.split(" ",)[:4]
         counter += 1
         boxes.append(coordinates)
     box_objs = create_boxes_from_list(boxes)
-    check_overlap(box_objs)
+    check_overlap(box_objs) # check if there is a overlap between boxes
     print("Land boxes: {}".format(check_land(box_objs)))

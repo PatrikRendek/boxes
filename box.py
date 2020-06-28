@@ -31,29 +31,29 @@ class Box:
         """ String representation of Box objects """
         return str(self.a)+" "+str(self.b)+" "+str(self.c)+" "+str(self.d)+" "+"Land: "+str(self.land)+" "+"Nested: "+str(self.nested)
 
-    """Check if boxes overlaps.
-        
-        Parameters:
-        box2 (object) -- Box object
-
-        Returns:
-        bool: True if boxes overlaps else False.
-    """
     def overlap(self,box2: object):
+        """Check if boxes overlaps.
+
+            Parameters:
+            box2 (object) -- Box object
+
+            Returns:
+            bool: True if boxes overlaps else False.
+        """
         if self.a <= box2.c and self.c >= box2.a and self.d >= box2.b and self.b <= box2.d:
             return True
         else:
             return False
 
-    """Check if box contains box2.
-    
-        Parameters:
-        box2 (object) -- Box object to compare
-
-        Returns:
-        bool: True if box contains box2 else False.
-    """
     def contains(self,box2: object):
+        """Check if box contains box2.
+
+            Parameters:
+            box2 (object) -- Box object to compare
+
+            Returns:
+            bool: True if box contains box2 else False.
+        """
         if self.a <= box2.a and self.b <= box2.b and self.c >= box2.c and self.d >= box2.d:
             return True
         else:
